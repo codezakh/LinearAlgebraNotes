@@ -1,0 +1,214 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+
+\title{Notes on Axler's Linear Algebra Done Right}
+\author{Zaid Khan}
+\date{\today}
+
+\newtheorem{mytheorem}{Theorem}
+\newtheorem{mydef}{Definition} %I will use this to start denoting definitions
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+
+
+\tableofcontents
+
+
+\clearpage
+
+
+\section{Vector Spaces}
+\subsection{R and C}
+\subsection{Definition of a Vector Space}
+\subsection{Subspaces}
+A subset U of a vector space V is called a \textbf{subspace} if U is also a vector space, using the same addition and scalar multiplication defined on V.
+
+\subsubsection{Conditions to a be a subspace}
+
+\begin{itemize}
+
+\item Additive Identity: \( 0 \in U \) .
+
+\item Closed under addition.
+
+\item Closed under multiplication.
+
+\end{itemize}
+
+\subsubsection{Sums of Subspaces}
+
+Let \( U_{1} \ldots U_{m}     \) be subsets of V. The sum of \( U_{1} \ldots U_{m}     \) is the set of all possible sums of elements of \( U_{1} \ldots U_{m}     \) . 
+\[U_{1} + \ldots + U_{m} = \left \{   u_{1} + u_{2} + \ldots + u_{m} : u_{1} \in U_{1} , u_{2} \in U _{2} \ldots , u_{m} \in U_{m}                      \right \} \]
+
+The sum of subspaces is the smallest subspace containing all the summands.
+
+
+\subsubsection{Direct Sums}
+
+
+A sum \( U_{1} \ldots U_{m}     \) is called a direct sum if each element of \( U_{1} + \ldots + U_{m}     \) can be written in only one way. To simplify, there is only one way to write each element of the resulting space using a sum of elements of \( U_{1} \ldots U_{m}     \) .
+
+
+\subsubsection{Conditions for a Direct Sum}
+
+
+\begin{itemize}
+
+\item Suppose that \( U_{1} \ldots U_{m}     \) are subspaces of V. Then \( U_{1 +} \ldots + U_{m}     \) is  a direct sum if and only if the only way to create the 0-vector is to take each \( u_{j} \) in the sum expression \( u_{1} + \ldots + u_{m} = 0   \) to be 0.
+
+
+\item Corollary: Suppose that U and W are subspaces of V. Then \( U_{1} +\ldots + U_{m}     \) is a direct sum if and only if \( U \cap W = { 0 } \).
+
+\end{itemize}
+
+
+
+
+
+\section{Finite Dimensional Vector Spaces}
+
+\subsection{Span and Linear Independence}
+\subsubsection{Span}
+The set of all linear combinations of a list of vectors \( v_{1}
+\ldots v_{m} \) in \textit{V} is called the span of \( v_{1} \ldots v_{m} \).  The span of the empty list () is defined to be \(  \left \{ 0 \right \} \) .
+
+\subsubsection{Finite Dimension}
+A vector space is finite dimensional if there is a list of vectors that spans the space. Note that lists are, by definition, finite dimensional.
+
+
+\subsubsection{Polynomials}
+
+\begin{itemize}
+
+\item A function \( p : \mathbb{F} \mapsto \mathbb{F} \) is called a polynomial with cefficients in F if there exists \(  a_{0} \ldots a_{m} \in \mathbb{F} \) such that \[   p(z) = a_{0} + a_{1} z + a_{2}z^{2} + \ldots + a_{m} z^{m} \quad \forall z \in \mathbb{F}   \] .
+
+\item P(F) is the set of all polynomials in \textbf{F}.
+
+\end{itemize}
+
+
+\subsubsection{Linear Dependence}
+\begin{itemize}
+
+\item A list \(v_{1} \ldots v_{m}   \) is linearly independent if the only choice of \( a_{1} \ldots a_{m} \in \mathbb{F}  \) that makes \(  a_{1}v_{1} + \ldots + a_{m}v_{m} =0   \) is \(  a_{1} = \ldots = a_{m} = 0   \). That is to say, all the coefficients in the sum must be 0.
+
+
+\item The empty list is declared to be linearly independent.
+
+\end{itemize}
+
+
+\subsection{Bases}
+
+\subsubsection{Basis}
+A basis of V is a list of vectors in V that is linearly independent and spans V.
+
+\subsubsection{Criterion for basis}
+A list \(v_{1} \ldots v_{n}  \) of vectors in \textit{V} is a basis of \textit{V} if and only if every \( v \in V\) can be written in the form \( v = a_{1}v_{1} + \ldots + a_{n}v_{n}  \) where \( a_{1} \ldots a_{n} \in \mathbb{F} \) and the list is linearly independent.
+
+\subsubsection{Direct Sums, Subspaces, and Bases}
+If V is finite dimensional and U is a subspace of V, there exists a subspace W of V such that \( V = W \oplus U \). To simply, every subspace of a finite dimensional vector space has a partner, which is also a subspace of V, which it forms a direct sum equal to V with.
+
+
+\section{Linear Maps}
+\subsection{The Vector Space of Linear Maps}
+
+\subsubsection{Definition of Linear Maps}
+A \textbf{linear map} from V to W is a function \(  T: V \mapsto W  \) such that the following properties are true:
+
+\begin{itemize}
+
+\item Additivity: \[ T(u+v) = T(u) + T(v) \]
+
+\item Homogeneity: \[ T( \lambda v) = \lambda (Tv) \]
+
+\end{itemize}
+
+The set of all linear maps from V to W is denoted \(  \mathcal{L} (V,W)   \).
+
+\subsubsection{Linear maps and basis of domain}
+
+\begin{mytheorem} 
+Suppose \( v_1 \ldots v_n \) is a basis of V and and \( w_1 \ldots w_n  \in W  \). Then \(  \exists T : V \mapsto W   \) such that \( Tv_j = w_j    \) for each j in \( 1 \ldots n \).
+
+\end{mytheorem}
+
+This theorem asserts that once we know the behavior of a linear map over the basis of vectors, the linear map is uniqely defined for all the vectors in the space.
+
+\subsubsection{Algebraic Operations on L( V,W ) }
+
+\begin{itemize}
+
+\item Addition: \(  (S+T) (u) =  Su + Tu     \)
+
+\item Scalar Multiplication: \(  ( \lambda T  ) (v)  = \lambda (Tv)    \)
+
+
+\end{itemize}
+
+\begin{mytheorem}
+\(  \mathcal{L} (V,W)  \) is a vector space with the addition and scalar multiplication defined above.
+\end{mytheorem}
+
+\subsubsection{Product of Linear Maps}
+The product of two linear maps is just function composition when the domains make sense.
+
+\subsubsection{Algebraic Properties of Linear Maps}
+
+\begin{itemize}
+
+\item Associativity \(  (T_1 T_2 )  T_3  = T_1 (T_2 T_3)    \)
+
+\item Identity \(     \)
+
+\item Distributivity
+
+\item Linear maps take 0 to 0.
+
+\end{itemize}
+
+Multiplication of linear maps is not commutative.
+
+\subsection{Null Spaces and Ranges}
+
+
+\subsubsection{Null Space}
+\begin{itemize}
+
+\item For $T \in L(V,W)$, the \textbf{null space} of $T$, denoted \textbf{null T} is the subset of $V$ containing those vectors that $T$ maps to 0. This can also be called the kernel.
+
+\item Suppose $T \in L(V,W)$. Then null T is a subspace of V.
+
+\end{itemize}
+
+\subsubsection{Injectivity and Null Spaces}
+
+\begin{itemize}
+\item A function $T: V \mapsto W$ is called injective if Tu=TV implies u=v.
+\item Let $T \in L(V,W)$. Then T is injective iff null T $={0}$.
+
+\end{itemize}
+
+\subsubsection{Definition of Range}
+
+For T a function for V to W, the range of T is the subset of W consisting of those vectors which are of the form Tv for some $v \in V$.  This means the same as image.
+
+\subsubsection{Ranges and Subspaces}
+If $T \in L(V,W)$, then range T is a subspace of W. 
+
+\subsubsection{Definition of Surjective}
+
+A function $T: V \mapsto W$ is called surjective if its range equals W. This means the same as onto.
+
+\subsubsection{Fundamental Theorem of Linear Maps}
+
+Suppose V is finite dimensional and $T \in L(V,W)$. Then range T is finite-dimensional and dim V = dim null T + dim range T. 
+
+\end{document}
